@@ -3,7 +3,6 @@ import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const Dashboard = () => {
   const [loggedUser, setLoggedUser] = useState([]);
-  // const [bookedProducts, setBookedProducts] = useState([]);
   const userNow = loggedUser[0];
   // console.log(userNow);
   useEffect(() => {
