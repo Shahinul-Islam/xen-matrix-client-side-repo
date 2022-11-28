@@ -4,7 +4,6 @@ import { AuthContext } from "../../../Contexts/AuthProvider";
 const Dashboard = () => {
   const [loggedUser, setLoggedUser] = useState([]);
   const userNow = loggedUser[0];
-  // console.log(userNow);
   useEffect(() => {
     const url = `https://xen-matrix-server.vercel.app/user?email=${user.email}`;
     fetch(url)
