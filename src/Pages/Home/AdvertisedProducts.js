@@ -6,7 +6,7 @@ const AdertisedProducts = () => {
   const [advertisedProducts, setAdvertisedProducts] = useState([]);
   //   console.log(advertisedProducts);
   useEffect(() => {
-    const url = "http://localhost:5000/advertise";
+    const url = "https://xen-matrix-server.vercel.app/advertise";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

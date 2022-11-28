@@ -4,7 +4,7 @@ const useToken = (email) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
-      const url = `http://localhost:5000/jwt?email=${email}`;
+      const url = `https://xen-matrix-server.vercel.app/jwt?email=${email}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => {

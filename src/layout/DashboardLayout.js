@@ -9,7 +9,7 @@ const DashboardLayout = () => {
   const userNow = loggedUser[0];
   // console.log(userNow);
   useEffect(() => {
-    const url = `http://localhost:5000/user?email=${user.email}`;
+    const url = `https://xen-matrix-server.vercel.app/user?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setLoggedUser(data));

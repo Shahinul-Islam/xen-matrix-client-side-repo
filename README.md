@@ -1,6 +1,6 @@
 # `Getting Started with used watch selling website Xen Matrix`
 
-This project is fullstack project made with tailwind, daisy ui, react, firebase, express js and mongodb and [visit this site](https://doctor-sam-ecfd3.web.app/).
+This project is fullstack project made with tailwind, daisy ui, react, firebase, express js and mongodb and [visit this site](https://xen-matrix.web.app/).
 
 ## This project is about:
 

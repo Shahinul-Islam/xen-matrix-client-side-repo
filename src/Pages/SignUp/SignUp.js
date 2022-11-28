@@ -86,7 +86,7 @@ const SignUp = () => {
   // set user to the databse while sign up
   const saveUser = (name, email, role) => {
     const user = { name, email, role };
-    fetch("http://localhost:5000/users", {
+    fetch("https://xen-matrix-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -104,7 +104,7 @@ const SignUp = () => {
 
   // check user verified of not via token
   const getUserToken = (email) => {
-    const url = `http://localhost:5000/jwt?email=${email}`;
+    const url = `https://xen-matrix-server.vercel.app/jwt?email=${email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

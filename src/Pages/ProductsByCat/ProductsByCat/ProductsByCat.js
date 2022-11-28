@@ -12,7 +12,7 @@ const ProductsByCat = ({ state }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000${location.pathname}`;
+    const url = `https://xen-matrix-server.vercel.app${location.pathname}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));

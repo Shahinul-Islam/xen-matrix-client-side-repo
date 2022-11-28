@@ -24,7 +24,7 @@ const ProductModal = ({ modalProduct, setModalProduct }) => {
       modalProduct,
     };
     //send data to data base
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://xen-matrix-server.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

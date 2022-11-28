@@ -7,21 +7,21 @@ const MyProuducts = () => {
   const [myProducts, setMyProducts] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    /* const url = `http://localhost:5000/products?email=${user.email}`;
+    /* const url = `https://xen-matrix-server.vercel.app/products?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyProducts(data)); */
     getMyProducts();
   }, []);
   const getMyProducts = () => {
-    const url = `http://localhost:5000/products?email=${user.email}`;
+    const url = `https://xen-matrix-server.vercel.app/products?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyProducts(data));
   };
   //handle remove product
   const handleRemoveProduct = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://xen-matrix-server.vercel.app/products/${id}`, {
       method: "DELETE",
     });
     getMyProducts();
@@ -30,7 +30,7 @@ const MyProuducts = () => {
 
   //handle update advertise value
   const handleAdvertiseProduct = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://xen-matrix-server.vercel.app/products/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

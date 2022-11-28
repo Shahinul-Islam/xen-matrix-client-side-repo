@@ -48,7 +48,7 @@ const AddNewProduct = () => {
       description,
     };
     console.log(newProduct);
-    fetch("http://localhost:5000/products", {
+    fetch("https://xen-matrix-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

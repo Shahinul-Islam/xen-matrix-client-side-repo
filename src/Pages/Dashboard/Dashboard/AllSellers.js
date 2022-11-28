@@ -4,14 +4,14 @@ import SellerCard from "./SellerCard";
 const AllSellers = () => {
   const [sellers, setSellers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/sellers")
+    fetch("https://xen-matrix-server.vercel.app/sellers")
       .then((res) => res.json())
       .then((data) => setSellers(data));
   }, []);
   //handle remove buyer
   const handleRemoveUser = (email) => {
     console.log("deleted user: ", email);
-    fetch(`http://localhost:5000/users/${email}`, {
+    fetch(`https://xen-matrix-server.vercel.app/users/${email}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
