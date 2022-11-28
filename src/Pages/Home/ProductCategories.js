@@ -7,9 +7,6 @@ const ProductCategories = () => {
   useEffect(() => {
     const url = "https://xen-matrix-server.vercel.app/categories";
     axios.get(url).then((res) => setCategories(res.data));
-    /* fetch(url)
-      .then((res) => res.json())
-      .then((data) => setCategories(data)); */
   }, []);
   return (
     <div>
