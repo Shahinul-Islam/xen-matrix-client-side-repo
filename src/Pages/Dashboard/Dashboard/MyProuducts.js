@@ -7,10 +7,6 @@ const MyProuducts = () => {
   const [myProducts, setMyProducts] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    /* const url = `https://xen-matrix-server.vercel.app/products?email=${user.email}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setMyProducts(data)); */
     getMyProducts();
   }, []);
   const getMyProducts = () => {
@@ -35,9 +31,8 @@ const MyProuducts = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
-    console.log(id);
     toast.success("Advertised Set");
   };
 
