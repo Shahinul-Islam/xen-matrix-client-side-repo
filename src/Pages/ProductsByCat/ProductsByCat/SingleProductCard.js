@@ -10,29 +10,17 @@ const SingleProductCard = ({ product, setModalProduct }) => {
   const userEmail = user.email;
   const {
     thumb,
-    catName,
-    condition,
     description,
     location,
-    mobile,
     name,
     originalPrice,
     postedTime,
-    purchaseYear,
     resalePrice,
     seller,
     verified,
     yearsOfUse,
   } = product;
 
-  //handle modal
-  const handleModal = (product) => {
-    console.log(product._id);
-  };
-  /* 
-  const handleSubmit = () => {
-    toast.success("Product Booked Successfully!");
-  }; */
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
@@ -64,10 +52,6 @@ const SingleProductCard = ({ product, setModalProduct }) => {
           </label>
         </div>
       </div>
-      {/* <ProductModal handleModal={handleModal} product={product}></ProductModal> */}
-      {/* modal goes here  */}
-
-      {/* modal goes here  */}
     </div>
   );
 };
