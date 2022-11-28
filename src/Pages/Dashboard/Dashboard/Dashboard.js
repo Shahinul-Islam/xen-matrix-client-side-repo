@@ -11,14 +11,7 @@ const Dashboard = () => {
       .then((data) => setLoggedUser(data));
   }, []);
   const { user } = useContext(AuthContext);
-  // console.log(bookedProducts);
-  /* 
-  useEffect(() => {
-    const url = `https://xen-matrix-server.vercel.app/booked?email=${user.email}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBookedProducts(data));
-  }, []); */
+
   return (
     <div>
       <h2 className="text-center my-4 font-bold text-2xl">
