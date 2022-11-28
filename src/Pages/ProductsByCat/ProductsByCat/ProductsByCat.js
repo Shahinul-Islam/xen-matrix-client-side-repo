@@ -6,9 +6,6 @@ import SingleProductCard from "./SingleProductCard";
 const ProductsByCat = ({ state }) => {
   const location = useLocation();
   const [modalProduct, setModalProduct] = useState(null);
-  // console.log(modalProduct);
-  //   const name = location.state?.name;
-  //   console.log(name);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
