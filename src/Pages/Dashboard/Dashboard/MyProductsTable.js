@@ -5,11 +5,6 @@ const MyProductsTable = ({
   handleRemoveProduct,
   handleAdvertiseProduct,
 }) => {
-  console.log(myProduct);
-  //handle remove product
-  /* const handleRemoveProduct = (id) => {
-    console.log("product clicked: ", id);
-  }; */
   return (
     <tr>
       <td>

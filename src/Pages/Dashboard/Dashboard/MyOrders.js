@@ -6,7 +6,6 @@ const MyOrders = () => {
   const [loggedUser, setLoggedUser] = useState([]);
   const [bookedProducts, setBookedProducts] = useState([]);
   const userNow = loggedUser[0];
-  // console.log(userNow);
   useEffect(() => {
     const url = `https://xen-matrix-server.vercel.app/user?email=${user.email}`;
     fetch(url)
@@ -14,7 +13,6 @@ const MyOrders = () => {
       .then((data) => setLoggedUser(data));
   }, []);
   const { user } = useContext(AuthContext);
-  // console.log(bookedProducts);
 
   useEffect(() => {
     const url = `https://xen-matrix-server.vercel.app/booked?email=${user.email}`;
