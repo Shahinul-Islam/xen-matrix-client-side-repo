@@ -3,19 +3,14 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const ProductModal = ({ modalProduct, setModalProduct }) => {
-  //   const { name, resalePrice } = product;
-  //   console.log(handleModal, product);
   const { user } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const name = form.name.value;
-    // const productName = form.productName.value;
-    // const productId = form.productId.value;
     const phone = form.phone.value;
     const meetLoaction = form.locationMeet.value;
-    // console.log(email, name, productName, phone, meetLoaction);
     const booking = {
       name,
       email,
@@ -38,7 +33,6 @@ const ProductModal = ({ modalProduct, setModalProduct }) => {
         setModalProduct(null);
         toast.success("Product Booked Successfully!");
       });
-    // console.log(booking);
   };
   return (
     <div>
