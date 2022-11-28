@@ -11,7 +11,6 @@ import "./Hero.css";
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
-// import HeroSlide from "./HeroSlide";
 
 const Hero = () => {
   return (
