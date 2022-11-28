@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Contexts/AuthProvider";
 import AdvertisedCard from "./AdvertisedCard";
 
 const AdertisedProducts = () => {
   const [advertisedProducts, setAdvertisedProducts] = useState([]);
-  //   console.log(advertisedProducts);
   useEffect(() => {
     const url = "https://xen-matrix-server.vercel.app/advertise";
     fetch(url)
