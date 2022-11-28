@@ -1,8 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import SellerCard from "./SellerCard";
 
 const AllSellers = () => {
   const [sellers, setSellers] = useState([]);
+
   useEffect(() => {
     fetch("https://xen-matrix-server.vercel.app/sellers")
       .then((res) => res.json())
