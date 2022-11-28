@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import ProductModal from "./ProductModal";
 import SingleProductCard from "./SingleProductCard";
@@ -6,14 +7,14 @@ import SingleProductCard from "./SingleProductCard";
 const ProductsByCat = ({ state }) => {
   const location = useLocation();
   const [modalProduct, setModalProduct] = useState(null);
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const url = `https://xen-matrix-server.vercel.app${location.pathname}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  const { data: products = [] } = useQuery({
+    queryKey: ["location"],
+    queryFn: () =>
+      fetch(`https://xen-matrix-server.vercel.app${location.pathname}`).then(
+        (res) => res.json()
+      ),
+  });
   return (
     <div>
       <h2 className="text-2xl text-center my-3">
