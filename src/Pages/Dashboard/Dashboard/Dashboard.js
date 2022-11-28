@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider";
-// import BookedProductTable from "./BookedProductTable";
 
 const Dashboard = () => {
   const [loggedUser, setLoggedUser] = useState([]);
