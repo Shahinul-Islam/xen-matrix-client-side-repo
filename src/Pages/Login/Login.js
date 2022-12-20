@@ -12,6 +12,10 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
+  // setTimeout(() => {
+  //   setErrorMessage("");
+  // }, 3000);
+
   //using react form
 
   const {
@@ -24,15 +28,16 @@ const Login = () => {
     const email = data.email;
     const password = data.password;
 
-    console.log(data);
+    // console.log(data);
     signInUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // getUserToken(email);
         navigate(from, { replace: true });
       })
-      .catch((error) =>
+      .catch((error) => {
+        // console.log(error);
         setErrorMessage(
           error.message
             .split("(")[1]
@@ -40,8 +45,8 @@ const Login = () => {
             .split(")")[0]
             .split("-")
             .join(" ")
-        )
-      );
+        );
+      });
   };
 
   //sign in using google
@@ -129,6 +134,10 @@ const Login = () => {
                     },
                   })}
                 />
+                {/* {errors.password?.type === "required" && (
+                  <p role="alert">Password is required</p>
+                )} */}
+                {errors.password?.message}
                 {/* 
                 {errors.password?.type === "required" && (
                   <p role="alert">Password is required</p>
@@ -151,6 +160,7 @@ const Login = () => {
               {/* {errors.exampleRequired && <span>This field is required</span>} */}
               <div>
                 <p className="p-2 text-center uppercase">{errorMessage}</p>
+                {/* {alert(errorMessage)} */}
               </div>
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-primary">

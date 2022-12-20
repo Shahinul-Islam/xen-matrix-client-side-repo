@@ -14,7 +14,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from "swiper";
 
 const Hero = () => {
   return (
-    <div className="pt-4">
+    <div className="">
       <Swiper
         cssMode={true}
         navigation={true}
