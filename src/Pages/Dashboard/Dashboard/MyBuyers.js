@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const MyBuyers = () => {
-  return (
-    <div>
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 2000);
+  }, []);
+  return isLoading ? (
+    <>
+      <progress className="progress progress-primary w-56"></progress>
+    </>
+  ) : (
+    <>
       <section
         class="h-screen bg-cover"
         style={{
@@ -17,7 +25,7 @@ const MyBuyers = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

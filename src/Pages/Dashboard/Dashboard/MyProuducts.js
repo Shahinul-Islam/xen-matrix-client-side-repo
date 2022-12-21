@@ -5,9 +5,13 @@ import MyProductsTable from "./MyProductsTable";
 
 const MyProuducts = () => {
   const [myProducts, setMyProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
   useEffect(() => {
     getMyProducts();
+  }, []);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 2000);
   }, []);
   const getMyProducts = () => {
     const url = `https://xen-matrix-server.vercel.app/products?email=${user.email}`;
@@ -39,37 +43,45 @@ const MyProuducts = () => {
   return (
     <div>
       <h2 className="text-center font-bold my-4 text-2xl">My Products</h2>
-      <div>
-        {myProducts ? (
-          <>
-            <div className="overflow-x-auto w-full">
-              <table className="table w-full">
-                <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {myProducts &&
-                    myProducts.map((myProduct) => (
-                      <MyProductsTable
-                        key={myProduct._id}
-                        myProduct={myProduct}
-                        handleRemoveProduct={handleRemoveProduct}
-                        handleAdvertiseProduct={handleAdvertiseProduct}
-                      ></MyProductsTable>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-          </>
-        ) : (
-          <></>
-        )}
-      </div>
+      {isLoading ? (
+        <>
+          <progress className="progress progress-primary w-56"></progress>
+        </>
+      ) : (
+        <>
+          <div>
+            {myProducts ? (
+              <>
+                <div className="overflow-x-auto w-full">
+                  <table className="table w-full">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {myProducts &&
+                        myProducts.map((myProduct) => (
+                          <MyProductsTable
+                            key={myProduct._id}
+                            myProduct={myProduct}
+                            handleRemoveProduct={handleRemoveProduct}
+                            handleAdvertiseProduct={handleAdvertiseProduct}
+                          ></MyProductsTable>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };

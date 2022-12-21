@@ -6,6 +6,10 @@ const Dashboard = () => {
   console.log(user.email);
   const [loggedUser, setLoggedUser] = useState([]);
   const userNow = loggedUser[0];
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 2000);
+  }, []);
   // console.log(loggedUser);
   useEffect(() => {
     const url = `https://xen-matrix-server.vercel.app/user?email=${user.email}`;
@@ -16,9 +20,17 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2 className="text-center my-4 font-bold text-2xl">
-        You are logged in as : {userNow?.role}
-      </h2>
+      {isLoading ? (
+        <>
+          <progress className="progress progress-primary w-56"></progress>
+        </>
+      ) : (
+        <>
+          <h2 className="text-center my-4 font-bold text-2xl">
+            You are logged in as : {userNow?.role}
+          </h2>
+        </>
+      )}
     </div>
   );
 };
