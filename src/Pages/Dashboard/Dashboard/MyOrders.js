@@ -5,6 +5,10 @@ import BookedProductTable from "./BookedProductTable";
 const MyOrders = () => {
   const [loggedUser, setLoggedUser] = useState([]);
   const [bookedProducts, setBookedProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 3000);
+  }, []);
   const userNow = loggedUser[0];
   useEffect(() => {
     const url = `https://xen-matrix-server.vercel.app/user?email=${user.email}`;
@@ -26,38 +30,46 @@ const MyOrders = () => {
   }, [user.email]);
   return (
     <div>
-      {userNow && userNow?.role === "Buyer" ? (
-        <>
-          <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Price</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {bookedProducts.map((bookedProduct) => (
-                  <BookedProductTable
-                    key={bookedProduct._id}
-                    bookedProduct={bookedProduct}
-                  ></BookedProductTable>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
+      {isLoading ? (
+        <div className="flex justify-center my-2">
+          <progress className="progress progress-primary w-56"></progress>
+        </div>
       ) : (
-        <></>
-      )}
-      {userNow && userNow === "Seller" ? (
-        <>
-          <h2>This is seller products list</h2>
-        </>
-      ) : (
-        <></>
+        <div>
+          {userNow && userNow?.role === "Buyer" ? (
+            <>
+              <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Price</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {bookedProducts.map((bookedProduct) => (
+                      <BookedProductTable
+                        key={bookedProduct._id}
+                        bookedProduct={bookedProduct}
+                      ></BookedProductTable>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
+          {userNow && userNow === "Seller" ? (
+            <>
+              <h2>This is seller products list</h2>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
       )}
     </div>
   );

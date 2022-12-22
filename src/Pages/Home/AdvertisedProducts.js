@@ -5,7 +5,7 @@ const AdertisedProducts = () => {
   const [advertisedProducts, setAdvertisedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
   }, []);
   useEffect(() => {
     const url = "https://xen-matrix-server.vercel.app/advertise";
@@ -23,9 +23,9 @@ const AdertisedProducts = () => {
             Advertised Products
           </h2>
           {isLoading ? (
-            <>
+            <div className="flex justify-center">
               <progress className="progress progress-primary w-56"></progress>
-            </>
+            </div>
           ) : (
             <>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 my-8">

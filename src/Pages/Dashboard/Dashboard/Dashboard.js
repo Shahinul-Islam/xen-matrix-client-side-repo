@@ -8,7 +8,7 @@ const Dashboard = () => {
   const userNow = loggedUser[0];
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
   }, []);
   // console.log(loggedUser);
   useEffect(() => {
@@ -21,9 +21,9 @@ const Dashboard = () => {
   return (
     <div>
       {isLoading ? (
-        <>
+        <div className="flex justify-center my-2">
           <progress className="progress progress-primary w-56"></progress>
-        </>
+        </div>
       ) : (
         <>
           <h2 className="text-center my-4 font-bold text-2xl">

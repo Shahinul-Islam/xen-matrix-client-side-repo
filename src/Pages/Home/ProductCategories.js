@@ -6,7 +6,7 @@ const ProductCategories = () => {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
   }, []);
   useEffect(() => {
     const url = "https://xen-matrix-server.vercel.app/categories";
@@ -16,9 +16,9 @@ const ProductCategories = () => {
     <div>
       <h2 className="my-4 font-bold text-2xl text-center">Categories</h2>
       {isLoading ? (
-        <>
+        <div className="flex justify-center">
           <progress className="progress progress-primary w-56"></progress>
-        </>
+        </div>
       ) : (
         <>
           <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3 p-4">

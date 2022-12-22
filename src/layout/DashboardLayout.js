@@ -10,7 +10,7 @@ const DashboardLayout = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
   }, []);
   // console.log(userNow);
   useEffect(() => {
@@ -25,9 +25,9 @@ const DashboardLayout = () => {
     <div>
       <Navbar></Navbar>
       {isLoading ? (
-        <>
+        <div className="flex justify-center my-2">
           <progress className="progress progress-primary w-56"></progress>
-        </>
+        </div>
       ) : (
         <>
           <div className="drawer drawer-mobile">

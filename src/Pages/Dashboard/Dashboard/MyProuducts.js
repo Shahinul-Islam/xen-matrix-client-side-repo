@@ -11,7 +11,7 @@ const MyProuducts = () => {
     getMyProducts();
   }, []);
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
   }, []);
   const getMyProducts = () => {
     const url = `https://xen-matrix-server.vercel.app/products?email=${user.email}`;
@@ -44,9 +44,9 @@ const MyProuducts = () => {
     <div>
       <h2 className="text-center font-bold my-4 text-2xl">My Products</h2>
       {isLoading ? (
-        <>
+        <div className="flex justify-center my-2">
           <progress className="progress progress-primary w-56"></progress>
-        </>
+        </div>
       ) : (
         <>
           <div>

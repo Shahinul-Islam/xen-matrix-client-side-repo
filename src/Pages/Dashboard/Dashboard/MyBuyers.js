@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 const MyBuyers = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
   }, []);
   return isLoading ? (
-    <>
+    <div className="flex justify-center my-2">
       <progress className="progress progress-primary w-56"></progress>
-    </>
+    </div>
   ) : (
     <>
       <section
